@@ -16,7 +16,7 @@
 }
 
 .m-input-date > input {
-    padding: 8px;
+    padding: 0px 8px 0px 8px;
     width: 100%;
 }
 
@@ -45,6 +45,5 @@
 }
 
 ::-webkit-calendar-picker-indicator {
-    background: url("/assets/Icons/ic_date.svg") center/80% no-repeat;
+    background: url("../../assets/Images/date.svg") center/80% no-repeat;
   }
-

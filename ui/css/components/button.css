@@ -1,24 +1,23 @@
 .btn_s1{
-
+    background-color: #03ae66;
     padding: 12px;
     margin: 0 0 0 8px;
-    height: 32px;
     min-width: 96px;
-    font-family: OpenSans-Semibold;
+    font-family: opensans;
     font-size: 13px;
     border-radius: 4px;
     cursor: pointer;
     line-height: 8px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    text-align: center;
 }
 
 .btn_s1:hover {
     background-color: #02bf70;
-    color: #FFFFFF;
-    /* padding: 12px; */
-    text-align: center;
     font-size: 13px;
     min-width: 96px;
-    font-weight: 600;
     font-family: opensans;
     font-size: 13px;  
     margin: 0px 0px 0px 8px;
@@ -26,10 +25,9 @@
     height: 32px;
     cursor: pointer;
     display: inline-block;
-    border: none;
 }
 
-.btn_s1:disabled {
+.btn-close , .btn-close:hover, .btn_s1:disabled{
     background-color: #e0e0e0;
     color: #a6a6a6;
     /* padding: 12px; */
@@ -42,9 +40,11 @@
     margin: 0px 0px 0px 8px;
     border-radius: 4px;
     height: 32px;
-    cursor: not-allowed;
     display: inline-block;
     border: none;
+}
+.btn-close , .btn-close:hover {
+    color: black;
 }
 .button-icon {
     background-image: url(../../assets/Icons/ic_sprites.svg);
