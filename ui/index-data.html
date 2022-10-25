@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/layout/layout.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components/table.css">
+    <link rel="stylesheet" href="./css/components/button.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="modal-add" class="modal hide">
+        <div class="flex-center">
+            <div class="modal__inner modal__inner--add">
+                <img src="./assets/Icons/ic_X_2.png" class="modal-close cursor-pointer" alt="">
+                <div id="modal-content-add" class="modal-content">
+                    <div class="modal-content__left">
+                        <img src="./assets/Images/default_avatar.png" alt="">
+                        <div class="btn-choose-file">Chọn ảnh</div>
+                        <div id="display-teacher-name" style="text-align: center;">Họ và tên</div>
+                        <div id="display-teacher-code" style="text-align: center;">Số hiệu cán bộ</div>
+                    </div>
+                    <div class="modal-content__right">
+                        <span class="modal__title"></span>
+                        <div class="form-wrapper">
+                            <div class="form-group">
+                                <label for="input-teacher-code">Số hiệu cán bộ<span style="color: red;">*</span></label>
+                                <input id="input-teacher-code" type="text" class="m-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Họ và tên<span style="color: red;">*</span></label>
+                                <input id="input-teacher-name" type="text" class="m-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Số điện thoại</label>
+                                <input type="number" class="m-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="text" class="m-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Tổ bộ môn</label>
+                                <div tabindex="0" class="m-select">
+                                    <span class=""></span>
+                                    <img src="./assets/Icons/icon_down-arrow-small.svg" alt="">
+                                    <div class="m-select__wrap-option hide">
+                                        <div class="m-select__option m-select__option--active">Tổ Toán - Tin</div>
+                                        <div class="m-select__option">Tổ Lý</div>
+                                        <div class="m-select__option">Tổ Hóa - Sinh</div>
+                                        <div class="m-select__option">Tổ Anh - Văn</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label title="Quản lý theo môn" for="">QL theo môn</label>
+                                <div tabindex="0" class="multi-select">
+                                    <div class="multi-select__icon--show">
+                                    </div>
+                                    <ul class="tag-wrap">
+                                        <!-- <li value="tag-multi-select-1" class="tag-picked">Toán
+                                            <div class="tag-picked__btn--close"></div>
+                                        </li> -->
+                                    </ul>
+                                    <div class="multi-select__wrap shadow hide">
+                                        <div class="multi-select__header">
+                                            <input type="checkbox" name="" class="m-checkbox">
+                                            <span>Tất cả</span>
+                                        </div>
+                                        <div class="multi-select__option-wrap">
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-1" type="checkbox" name="" class="m-checkbox">
+                                                <span>Toán</span>
+                                            </div>
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-2" type="checkbox" name="" class="m-checkbox">
+                                                <span>Lý</span>
+                                            </div>
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-3" type="checkbox" name="" class="m-checkbox">
+                                                <span>Hóa</span>
+                                            </div>
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-4" type="checkbox" name="" class="m-checkbox">
+                                                <span>Sinh</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="width: 100%;">
+                                <label title="Quản lý kho, phòng" for="">QL kho, phòng</label>
+                                <div class="multi-select">
+                                    <div class="multi-select__icon--show">
+                                    </div>
+                                    <ul class="tag-wrap">
+                                        <!-- <li id="multi-select-1" class="tag-picked">Kho phòng chung
+                                            <div class="tag-picked__btn--close"></div>
+                                        </li> -->
+                                    </ul>
+                                    <div class="multi-select__wrap shadow hide">
+                                        <div class="multi-select__header">
+                                            <input type="checkbox" name="" class="m-checkbox">
+                                            <span>Tất cả</span>
+                                        </div>
+                                        <div class="multi-select__option-wrap">
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-1" type="checkbox" name="" class="m-checkbox">
+                                                <span>Kho phòng chung</span>
+                                            </div>
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-2" type="checkbox" name="" class="m-checkbox">
+                                                <span>Phòng lý</span>
+                                            </div>
+                                            <div class="multi-select__option">
+                                                <input value="multi-select-3" type="checkbox" name="" class="m-checkbox">
+                                                <span>Phòng tin học</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="width: 40%;">
+                                <input type="checkbox" class="m-checkbox">
+                                <label title="Trình độ nghiệp vụ quản lý thiết bị">Trình độ nghiệp vụ QLTB</label>
+                            </div>
+                            <div class="form-group" style="width: 20%;">
+                                <input id="isWorking" type="checkbox" class="m-checkbox">
+                                <label>Đang làm việc</label>
+                            </div>
+                            <div id="quit-work" class="form-group" style="width: 40%;">
+                                <label for="">Ngày nghỉ việc</label>
+                                <div class="m-input-date">
+                                    <input class="m-input " type="date" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal-footer-add" class="modal__footer">
+                    <button class="m-btn m-btn-style2 modal__btn-close">Đóng</button>
+                    <button id="btn-save" class="m-btn m-btn-style1">Lưu</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-delete" class="modal hide">
+        <div class="flex-center">
+            <div class="modal__inner modal__inner--dlete">
+                <img src="./assets/Icons/ic_X_2.png" class="modal-close cursor-pointer" alt="">
+                <div id="modal-content-delte" class="modal-content">
+                    <span class="title">Thông báo</span>
+                    <div>Bạn có chắc chắn muốn xóa cán bộ giáo viên đang chọn không ?</div>
+                </div>
+                <div id="modal-footer-delete" class="modal__footer">
+                    <button class="m-btn m-btn-style2 modal__btn-close">Đóng</button>
+                    <button id="btn-accept-delete" class="m-btn m-btn-style1">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toastify shadow flex">
+        <img src="" alt="">
+        <div class="toastify-content flex-col">
+            <span class="toastify-content__title title"></span>
+            <span class="toastify-content__message"></span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div id="margin" class="icon-container">
+                <div class="left">
+                    <button class="iconthietbi"></button>
+                    <a href="#">
+                        <span class="logo-text">Thiết bị</span>
+                    </a>
+                </div>
+                <div class="right">
+                    <div class="menu-collapse" ></div>
+                </div>
+            </div>
+            <div class="overview">
+                <a href="#">
+                    <div class="sidebar-icon"></div>
+                    <div class="sidebar-text">Tổng quan</div>
+                </a>
+            </div>
+            <div class="overview">
+                <div class="sidebar-icon device"></div>
+                <div class="sidebar-text">Thiết bị</div>
+                <div class="sub-menu">
+                    <div class="sub-menu-tittle">Thiết bị</div>
+                    <div class="sub-menu-item">
+                        <a href="#" class="sub-menu-item">Danh sách thiết bị</a>
+                        <a href="#" class="sub-menu-item">Tăng thiết bị</a>
+                        <a href="#" class="sub-menu-item">Giảm thiết bị</a>
+                        <a href="#" class="sub-menu-item">Kiểm kê</a>
+                        <a href="#" class="sub-menu-item">Theo dõi hỏng mất</a>
+                        <a href="#" class="sub-menu-item">Thanh lý</a>
+                    </div>
+                </div>
+            </div>
+            <div class="overview">
+                    <div class="sidebar-icon order"></div>
+                    <div class="sidebar-text">Mượn trả</div>
+            </div>
+            <div class="overview">
+                <a href="#">
+                    <div class="sidebar-icon report"></div>
+                    <div class="sidebar-text">Báo cáo</div>
+                </a>
+            </div>
+            <div class="overview">
+                    <div class="sidebar-icon system"></div>
+                    <div class="sidebar-text">Hệ thống</div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-left">
+                <div class="header-tittle">Cán bộ, giáo viên</div>
+                <button class="icon"></button>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <button class="avatar icon-noti">
+                        <div class="new-notification"></div>
+                    </button>
+                </div>
+                <div class="header-tittle">Admin</div>
+                <button class="avatar arrow"></button>
+                <button class="avatar"></button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-top">
+                <div class="main-top-left">
+                    <div class="input-search">
+                        <input class="input" type="text" placeholder=" Tìm kiếm">
+                        <img src="./assets/Icons/Ic_seerch.png" alt="" class="search-icon">
+                    </div>
+                </div>
+
+                <div class="main-top-right">
+                    <button id="add-btn" class="btn-xuatkhau btn-add">Thêm</button>
+                    <button class="btn-xuatkhau">Xuất khẩu</button>
+                    <button class="more"></button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="column-checkbox">
+                                    <input type="checkbox" name="" id="select-all" class="select-checkbox">
+                                </th>
+                                <th class="column-teacher-code">Số hiệu cán bộ</th>
+                                <th class="column-teacher-name">Họ và tên</th>
+                                <th class="column-phone-number">Số điện thoại</th>
+                                <th class="column-to-cm">Tổ chuyên môn</th>
+                                <th title="Quản lý môn" class="w-120">QL theo môn</th>
+                                <th title="Quản lý kho" class="w-150">QL kho phòng</th>
+                                <th title="Đào tạo quản lý thiết bị" class="column-check">Đào tạo QLTB</th>
+                                <th class="column-check">Đang làm việc</th>
+                                <th class="column-edit"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="record">
+                                <td class="column-checkbox">
+                                    <input id="" type="checkbox" name="" class="select-checkbox">
+                                </td>
+                                <td class="column-teacher-code">GV001</td>
+                                <td class="column-teacher-name">Đào Trọng Khang</td>
+                                <td class="column-phone-number">0962930516</td>
+                                <td class="column-to-cm">Tổ Toán-Tin</td>
+                                <td class="w-120">Vật Lý</td>
+                                <td class="w-150">Phòng Vật lý</td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt="" srcset=""></td>
+                                <td class="column-check"><img src="./assets/Icons/ic_Check.png" alt=""></td>
+                                <td class="column-edit">
+                                    <button class="record__field--edit"></button>
+                                    <button class="record__field--delete"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="paging">
+                    <div class="paging__left">
+                        <button class="arrow-page arrow-back2"></button>
+                        <button class="arrow-page arrow-back1"></button>
+                        <input class="page-present" type="text" value="1">
+                        <button class="arrow-page arrow-next1"></button>
+                        <button class="arrow-page arrow-next2"></button>
+                        <div class="countpage">1/10 trang (<b>500</b> kết quả)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-data hide">
+            <img src="/assets/Icons/ic_Alert.png" alt="">
+            <span class="title">Chưa có giáo viên</span>
+            <span>Vui lòng chọn Thêm mới từng giáo viên hoặc Nhập khẩu để lấy danh sách hiện có tại trường.</span>
+            <div class="btn-wrap">
+                <button class="btn_s1">Thêm mới</button>
+                <button class="btn_s1">Nhập khẩu</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

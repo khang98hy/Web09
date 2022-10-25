@@ -1,0 +1,432 @@
+@import url(./components/button.css);
+@import url(./components/table.css);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #eaecef;
+    box-shadow: 10px 10px;
+    font-family: sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 220px auto;
+    grid-template-rows: 48px auto;
+}
+
+.sidebar {
+    z-index: 99;
+    background-color: #24344B;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100vh;
+}
+
+.header {
+    height: 48px;
+    background-color: #f5f6fa;
+    display: inline;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    background-color: white;
+    box-shadow: 0px 2px #d5d8e6 inset;
+}
+
+.footer {
+    height: 56px;
+    display: inline;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+.icon-container {
+    align-items: center;
+    font-size: 14px;
+    min-width: 200x;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12px;
+}
+
+.iconthietbi {
+    padding: unset;
+    border: none;
+    background-image: url(../../assets/Icons/ic_IconThietBi.svg);
+    height: 40px;
+    width: 40px;
+    background-color: #24344B;
+    margin: 8px 8px 8px 0px;
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 16px;
+    color: #f3f4f6;
+    display: flex;
+    left: 0px;
+}
+
+.left {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    justify-content: left;
+}
+
+.menu-collapse {
+    margin: 15px;
+    height: 20px;
+    width: 20px;
+    background: #24344B url(../../assets/Icons/ic_sprites.svg);
+    background-repeat: no-repeat;
+    background-position: -15px -15px;
+    cursor: pointer;
+    display: flex;
+}
+
+#margin {
+    margin-bottom: 12px;
+}
+
+.sidebar-icon {
+    background: url(../../assets/Icons/ic_TongQuan.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 46px;
+    height: 40px;
+    display: flex;
+}
+
+.sidebar-text {
+    line-height: 40px;
+    width: 170px;
+    height: 40px;
+    font-size: 16px;
+    color: #f3f4f6;
+    float: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.overview {
+    border-left: 4px solid #24344B;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.overview a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview:hover {
+    background-color: #404f64;
+    border-left: 4px solid #0dd469;
+    cursor: pointer;
+}
+
+.overview:hover {
+    background-color: #404f64;
+    border-left: 4px solid #0dd469;
+    cursor: pointer;
+}
+
+.overview:hover .sub-menu {
+    display: inline;
+}
+
+.overview:active {
+    border-left: 4px solid #0dd469 !important;
+}
+
+.overview::after,
+::before {
+    box-sizing: border-box;
+}
+
+.sidebar-icon.device {
+    background: url(../../assets/Icons/ic_ThietBi.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sidebar-icon.order {
+    background: url(../../assets/Icons/ic_MuonTra.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sidebar-icon.report {
+    background: url(../../assets/Icons/ic_BaoCao.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sidebar-icon.system {
+    background: url(../../assets/Icons/ic_HeThong.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: auto;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    background: #404f64;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+    width: 172px;
+    left: 215px;
+    padding: 24px;
+    z-index: 10;
+}
+
+.sub-menu-tittle {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+
+}
+
+.sub-menu-item {
+    display: block;
+    line-height: 40px;
+    text-decoration: none !important;
+    color: #ffffff;
+    padding: 0;
+}
+
+.sub-menu-item:hover {
+    box-sizing: border-box;
+    color: #0dd469;
+}
+
+.sub-menu-item:active {
+    color: #0dd469;
+}
+
+.header-tittle {
+    align-items: center;
+    text-align: center;
+    display: inline-flex;
+    margin-left: 16px;
+    font-weight: 500;
+    width: fit-content;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+}
+
+.header-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    background-image: url(../../assets/Icons/ic_sprites.svg);
+    background-position: -374px -66px;
+    background-repeat: no-repeat;
+    background-color: #f5f6fa;
+    border: none;
+    height: 20px;
+    width: 20px;
+    padding: unset;
+    margin: auto;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    background-image: url(../../assets/Icons/ic_Avatar_36.png);
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: #f5f6fa;
+    margin: 4px 8px 4px 12px;
+}
+
+.arrow {
+    background-image: url(../../assets/Icons/ic_sprites.svg);
+    background-position: -184px -154px;
+    background-repeat: no-repeat;
+    width: 11px;
+    height: 2px;
+    padding-top: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon-noti {
+    background-image: url(../../assets/Icons/ic_Notification_32.png);
+    padding: 0px;
+    border-right: 3px solid #d5d7db;
+    background-position: 3px -3px;
+    height: 28px;
+    margin: 10px 4px 10px 8px;
+    position: relative;
+}
+.notification .new-notification {
+    position: absolute;
+    left: 22px;
+    top: 4px;
+    right: 40%;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    background-color: red;
+}
+.input {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-search {
+    position: relative;
+    margin: 16px 0px 16px 12px;
+}
+.input-search input{
+    min-width: 250px;
+}
+.search-icon{
+    margin: 4px 0;
+    padding: 0 4px;
+    position: absolute;
+    right: 0;
+    border-left: 2px solid #ccc;
+}
+.main-top {
+    height: 64px;
+    display: inline;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-top-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.more {
+    background-image: url(../../assets/Icons/ic_More.png);
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    margin: 16px;
+    margin-left: 0;
+    border: 2px solid #c3c8cf;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 3px 2px;
+    background-color: white;
+}
+
+.btn-xuatkhau {
+    background-color: white;
+    width: 100px;
+    height: 32px;
+    border-radius: 4px;
+    margin: 16px 8px 16px 8px;
+    display: inline-block;
+    border: 2px solid #c3c8cf;
+}
+
+.btn-add {
+    color: white;
+    font-weight: 500;
+    margin-right: 0px;
+    background-color: #03ae66;
+}
+
+.btn-add:hover {
+    background-color: #02bf70;
+}
+
+.page-present {
+    width: 64px;
+    height: 32px;
+    text-align: center;
+    margin: 12px 20px 12px 20px;
+    padding: unset;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.arrow-page {
+    height: 10px;
+    width: 10px;
+    padding: unset;
+    background-color: white;
+    border: none;
+    margin: 23px 0px 23px 24px;
+}
+
+.arrow-back2 {
+    background-position: center;
+    background-image: url(../../assets/Icons/ic_MoveToFirst.png);
+}
+
+.arrow-back1 {
+    margin-left: 20px;
+    background-position: center;
+    background-image: url(../../assets/Icons/ic_Back.png);
+}
+
+.arrow-next1 {
+    margin-left: unset;
+    background-position: center;
+    background-image: url(../../assets/Icons/ic_Next.png);
+}
+
+.arrow-next2 {
+    margin-left: 20px;
+    background-position: center;
+    background-image: url(../../assets/Icons/ic_MoveToLast.png);
+}
+
+.countpage {
+    margin-left: 20px;
+}
+.no-data {
+    height: calc(100vh - 48px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .no-data > * ~  * {
+    margin-top: 16px;
+  }
+  
+  .no-data > img {
+    height: 150px;
+    margin-bottom: 16px;
+  }
+  
